@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Mabatis中的延迟加载与缓存 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Mabatis中的延迟加载与缓存mabatis延迟加载什么是延迟加载？在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。 什么是立即加载？不管用不用直接查询出全部信息。 什么情况下使用延迟加载, 什么情况下使用立即加载？   表关系 加载方式     一对多、多对多 延迟加载   一对一、多对">
+  <meta name="description" content="Mabatis中的延迟加载与缓存mabatis延迟加载什么是延迟加载？在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。">
 <meta name="keywords" content="mybatis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mabatis中的延迟加载与缓存">
 <meta property="og:url" content="http://yoursite.com/2019/06/10/Mabatis中的延迟加载与缓存/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Mabatis中的延迟加载与缓存mabatis延迟加载什么是延迟加载？在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。 什么是立即加载？不管用不用直接查询出全部信息。 什么情况下使用延迟加载, 什么情况下使用立即加载？   表关系 加载方式     一对多、多对多 延迟加载   一对一、多对">
+<meta property="og:description" content="Mabatis中的延迟加载与缓存mabatis延迟加载什么是延迟加载？在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-10T08:26:37.300Z">
+<meta property="og:updated_time" content="2019-06-10T08:52:10.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mabatis中的延迟加载与缓存">
-<meta name="twitter:description" content="Mabatis中的延迟加载与缓存mabatis延迟加载什么是延迟加载？在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。 什么是立即加载？不管用不用直接查询出全部信息。 什么情况下使用延迟加载, 什么情况下使用立即加载？   表关系 加载方式     一对多、多对多 延迟加载   一对一、多对">
+<meta name="twitter:description" content="Mabatis中的延迟加载与缓存mabatis延迟加载什么是延迟加载？在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -173,6 +173,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Mabatis中的延迟加载与缓存"><a href="#Mabatis中的延迟加载与缓存" class="headerlink" title="Mabatis中的延迟加载与缓存"></a>Mabatis中的延迟加载与缓存</h2><h3 id="mabatis延迟加载"><a href="#mabatis延迟加载" class="headerlink" title="mabatis延迟加载"></a>mabatis延迟加载</h3><h5 id="什么是延迟加载？"><a href="#什么是延迟加载？" class="headerlink" title="什么是延迟加载？"></a>什么是延迟加载？</h5><p>在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。</p>
+<a id="more"></a>
 <h5 id="什么是立即加载？"><a href="#什么是立即加载？" class="headerlink" title="什么是立即加载？"></a>什么是立即加载？</h5><p>不管用不用直接查询出全部信息。</p>
 <h5 id="什么情况下使用延迟加载-什么情况下使用立即加载？"><a href="#什么情况下使用延迟加载-什么情况下使用立即加载？" class="headerlink" title="什么情况下使用延迟加载, 什么情况下使用立即加载？"></a>什么情况下使用延迟加载, 什么情况下使用立即加载？</h5><table>
 <thead>
@@ -319,18 +320,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/06/10/有趣的字符画/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/06/10/Mybatis约束/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mybatis约束</div>
+    <a href="/2019/06/10/有趣的字符画/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">有趣的字符画</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -478,6 +470,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ascii art</a>
               </li>
             
             <div class="clearfix"></div>
