@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: C/C++ | Hexo</title>
+  <title>Mabatis中的延迟加载与缓存 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/C-C/index.html">
+  <meta name="description" content="Mabatis中的延迟加载与缓存mabatis延迟加载什么是延迟加载？在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。 什么是立即加载？不管用不用直接查询出全部信息。 什么情况下使用延迟加载, 什么情况下使用立即加载？   表关系 加载方式     一对多、多对多 延迟加载   一对一、多对">
+<meta name="keywords" content="mybatis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mabatis中的延迟加载与缓存">
+<meta property="og:url" content="http://yoursite.com/2019/06/10/Mabatis中的延迟加载与缓存/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Mabatis中的延迟加载与缓存mabatis延迟加载什么是延迟加载？在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。 什么是立即加载？不管用不用直接查询出全部信息。 什么情况下使用延迟加载, 什么情况下使用立即加载？   表关系 加载方式     一对多、多对多 延迟加载   一对一、多对">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-10T08:21:55.844Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Mabatis中的延迟加载与缓存">
+<meta name="twitter:description" content="Mabatis中的延迟加载与缓存mabatis延迟加载什么是延迟加载？在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。 什么是立即加载？不管用不用直接查询出全部信息。 什么情况下使用延迟加载, 什么情况下使用立即加载？   表关系 加载方式     一对多、多对多 延迟加载   一对一、多对">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -147,136 +152,205 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Mabatis中的延迟加载与缓存" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mabatis中的延迟加载与缓存
+    </h1>
+  
+
+        
+        <a href="/2019/06/10/Mabatis中的延迟加载与缓存/" class="archive-article-date">
+  	<time datetime="2019-06-10T08:21:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mabatis中的延迟加载与缓存"><a href="#Mabatis中的延迟加载与缓存" class="headerlink" title="Mabatis中的延迟加载与缓存"></a>Mabatis中的延迟加载与缓存</h2><h3 id="mabatis延迟加载"><a href="#mabatis延迟加载" class="headerlink" title="mabatis延迟加载"></a>mabatis延迟加载</h3><h5 id="什么是延迟加载？"><a href="#什么是延迟加载？" class="headerlink" title="什么是延迟加载？"></a>什么是延迟加载？</h5><p>在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。</p>
+<h5 id="什么是立即加载？"><a href="#什么是立即加载？" class="headerlink" title="什么是立即加载？"></a>什么是立即加载？</h5><p>不管用不用直接查询出全部信息。</p>
+<h5 id="什么情况下使用延迟加载-什么情况下使用立即加载？"><a href="#什么情况下使用延迟加载-什么情况下使用立即加载？" class="headerlink" title="什么情况下使用延迟加载, 什么情况下使用立即加载？"></a>什么情况下使用延迟加载, 什么情况下使用立即加载？</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">表关系</th>
+<th style="text-align:center">加载方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">一对多、多对多</td>
+<td style="text-align:center">延迟加载</td>
+</tr>
+<tr>
+<td style="text-align:center">一对一、多对一</td>
+<td style="text-align:center">立即加载</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mabatis缓存"><a href="#mabatis缓存" class="headerlink" title="mabatis缓存"></a>mabatis缓存</h3><h5 id="什么是缓存？"><a href="#什么是缓存？" class="headerlink" title="什么是缓存？"></a>什么是缓存？</h5><pre><code>存在与内存中的临时数据，因为在内存中不需要再次查询数据库
+</code></pre><h5 id="什么时候使用缓存？"><a href="#什么时候使用缓存？" class="headerlink" title="什么时候使用缓存？"></a>什么时候使用缓存？</h5><pre><code>经常被查询且不经常改变的数据，数据的正确与否对最终结果影响不大
+</code></pre><h5 id="mybatis的一级缓存和二级缓存？"><a href="#mybatis的一级缓存和二级缓存？" class="headerlink" title="mybatis的一级缓存和二级缓存？"></a>mybatis的一级缓存和二级缓存？</h5><p>一级缓存：    mabatis的sqlSession的缓存<br>当调用sqlsession的增删改查方法以及commit(), close()方法时会清空一级缓存</p>
+<p>二级缓存:     sqlSessionFactory的缓存，同一个sqlSessionFactory创建出来的sqlSession共享二级缓存</p>
+<blockquote>
+<p>二级缓存开启<br>1、mabatis框架开启支持</p>
+<p><setting name="cacheEnabled" value="true"><br>2、当前映射文件开启支持二级缓存</setting></p>
+<p><cache><br>3、select标签添加属性（使当前操作支持二级缓存）<br>useCache=”true”</cache></p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃辣条<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/mainImages/Alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/mainImages/Wechatpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/10/map的用法/" class="archive-article-date">
-  	<time datetime="2019-06-10T07:31:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/10/map的用法/">usageOfMap</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/06/10/Mabatis中的延迟加载与缓存/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/10/vector的用法/" class="archive-article-date">
-  	<time datetime="2019-06-10T07:29:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/06/10/Mybatis约束/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Mybatis约束</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/10/vector的用法/">usageOfVector</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/10/bitset的用法/" class="archive-article-date">
-  	<time datetime="2019-06-10T07:29:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/10/bitset的用法/">usageOfbBitset</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -300,9 +374,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

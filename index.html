@@ -87,7 +87,7 @@
 		</nav>
 	</header>
 </div>
-<iframe style="margin-top: 300px;" frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=484158314&auto=0&height=32"></iframe>
+<iframe style="margin-top: 270px;" frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=2&id=484158314&auto=0&height=32"></iframe>
 
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
@@ -148,6 +148,108 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Mabatis中的延迟加载与缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/10/Mabatis中的延迟加载与缓存/">Mabatis中的延迟加载与缓存</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/10/Mabatis中的延迟加载与缓存/" class="archive-article-date">
+  	<time datetime="2019-06-10T08:21:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mabatis中的延迟加载与缓存"><a href="#Mabatis中的延迟加载与缓存" class="headerlink" title="Mabatis中的延迟加载与缓存"></a>Mabatis中的延迟加载与缓存</h2><h3 id="mabatis延迟加载"><a href="#mabatis延迟加载" class="headerlink" title="mabatis延迟加载"></a>mabatis延迟加载</h3><h5 id="什么是延迟加载？"><a href="#什么是延迟加载？" class="headerlink" title="什么是延迟加载？"></a>什么是延迟加载？</h5><p>在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。</p>
+<h5 id="什么是立即加载？"><a href="#什么是立即加载？" class="headerlink" title="什么是立即加载？"></a>什么是立即加载？</h5><p>不管用不用直接查询出全部信息。</p>
+<h5 id="什么情况下使用延迟加载-什么情况下使用立即加载？"><a href="#什么情况下使用延迟加载-什么情况下使用立即加载？" class="headerlink" title="什么情况下使用延迟加载, 什么情况下使用立即加载？"></a>什么情况下使用延迟加载, 什么情况下使用立即加载？</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">表关系</th>
+<th style="text-align:center">加载方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">一对多、多对多</td>
+<td style="text-align:center">延迟加载</td>
+</tr>
+<tr>
+<td style="text-align:center">一对一、多对一</td>
+<td style="text-align:center">立即加载</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mabatis缓存"><a href="#mabatis缓存" class="headerlink" title="mabatis缓存"></a>mabatis缓存</h3><h5 id="什么是缓存？"><a href="#什么是缓存？" class="headerlink" title="什么是缓存？"></a>什么是缓存？</h5><pre><code>存在与内存中的临时数据，因为在内存中不需要再次查询数据库
+</code></pre><h5 id="什么时候使用缓存？"><a href="#什么时候使用缓存？" class="headerlink" title="什么时候使用缓存？"></a>什么时候使用缓存？</h5><pre><code>经常被查询且不经常改变的数据，数据的正确与否对最终结果影响不大
+</code></pre><h5 id="mybatis的一级缓存和二级缓存？"><a href="#mybatis的一级缓存和二级缓存？" class="headerlink" title="mybatis的一级缓存和二级缓存？"></a>mybatis的一级缓存和二级缓存？</h5><p>一级缓存：    mabatis的sqlSession的缓存<br>当调用sqlsession的增删改查方法以及commit(), close()方法时会清空一级缓存</p>
+<p>二级缓存:     sqlSessionFactory的缓存，同一个sqlSessionFactory创建出来的sqlSession共享二级缓存</p>
+<blockquote>
+<p>二级缓存开启<br>1、mabatis框架开启支持</p>
+<p><setting name="cacheEnabled" value="true"><br>2、当前映射文件开启支持二级缓存</setting></p>
+<p><cache><br>3、select标签添加属性（使当前操作支持二级缓存）<br>useCache=”true”</cache></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/10/Mabatis中的延迟加载与缓存/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Mybatis约束" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1027,10 +1129,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
@@ -1043,11 +1141,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
             
             <div class="clearfix"></div>
