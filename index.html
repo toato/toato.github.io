@@ -148,6 +148,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-def-forword-sendRedirect" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/10/def-forword-sendRedirect/">def_forword_sendRedirect</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/10/def-forword-sendRedirect/" class="archive-article-date">
+  	<time datetime="2019-06-10T07:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="请求转发与重定向的区别"><a href="#请求转发与重定向的区别" class="headerlink" title="请求转发与重定向的区别"></a>请求转发与重定向的区别</h2><h4 id="请求转发"><a href="#请求转发" class="headerlink" title="请求转发"></a>请求转发</h4><blockquote>
+<p>request.getRequestDispatcher(“/success.jsp”).forward(request, response);</p>
+</blockquote>
+<p><img src="/img/def_forword_sendRedirect/878_0.png" alt></p>
+<h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><blockquote>
+<p>response.sendRedirect(“/success.jsp”);</p>
+</blockquote>
+<p><img src="/img/def_forword_sendRedirect/880_0.png" alt></p>
+<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><blockquote>
+<p>RequestDispatcher.forward方法只能将请求转发给同一个<strong>WEB应用中的组件</strong>；<br>HttpServletResponse.sendRedirect 方法不仅可以重定向到当前应用程序中的其他资源，还可以重定向到<strong>同一个站点上或者其他站点的应用程序中的资源</strong></p>
+</blockquote>
+<blockquote>
+<p>如果传递给HttpServletResponse.sendRedirect 方法的相对URL以“/”开头，它是相对于<strong>整个WEB站点</strong>的根目录；<br>如果创建RequestDispatcher对象时指定的相对URL以“/”开头，它是相对于当前<strong>WEB应用程序</strong>的根目录。</p>
+</blockquote>
+<blockquote>
+<p>调用RequestDispatcher.forward 方法的请求转发过程结束后，浏览器地址栏保持初始的<strong>URL地址不变</strong>。<br>调用HttpServletResponse.sendRedirect方法重定向的访问过程结束后，浏览器地址栏中显示的<strong>URL会发生改变，由初始的URL地址变成重定向的目标URL</strong></p>
+</blockquote>
+<blockquote>
+<p>重定向是<strong>两次请求</strong>，转发只有<strong>一次请求</strong></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">JavaEE</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/10/def-forword-sendRedirect/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="posts-Hexo的基本操作" class="article article-type-posts  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -485,11 +578,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">测试hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">测试hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">JavaEE</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
             
             <div class="clearfix"></div>
