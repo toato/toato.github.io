@@ -246,62 +246,9 @@
 <p>是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。</p>
 </blockquote>
 <hr>
-<h5 id="事务的四大特性？"><a href="#事务的四大特性？" class="headerlink" title="事务的四大特性？"></a>事务的四大特性？</h5><blockquote>
-<p>ACID<br>   原子性(Atomicity)<br>   一致性(Consistency)<br>   隔离性(Isolation)<br>   持久性(Durability)</p>
-</blockquote>
-<hr>
-<h5 id="不考虑隔离性会产生的3个问题？"><a href="#不考虑隔离性会产生的3个问题？" class="headerlink" title="不考虑隔离性会产生的3个问题？"></a>不考虑隔离性会产生的3个问题？</h5><ul>
-<li>脏读</li>
-</ul>
-<blockquote>
-<p>脏读是指在一个事务处理过程里读取了另一个未提交的事务中的数据</p>
-</blockquote>
-<pre><code>// 例如A向B转100元,分两步
-update account set money=money+100 where name=’B’;    // B得到100元
-// 若此时B查看账户发现钱到账了,若事务没有提交就会回滚,最后钱并没有到账
-update account set money=money - 100 where name=’A’;    // A减少100元
-</code></pre><ul>
-<li>不可重复读</li>
-</ul>
-<blockquote>
-<p>不可重复读是指在对于数据库中的某个数据，一个事务范围内多次查询却返回了不同的数据值，这是由于在查询间隔，被另一个事务修改并提交了。</p>
-</blockquote>
-<pre><code>例如事务T1在读取某一数据，而事务T2立马修改了这个数据并且提交事务给数据库，事务T1再次读取该数据就得到了不同的结果，发送了不可重复读。　　不可重复读和脏读的区别是，脏读是某一事务读取了另一个事务未提交的脏数据，而不可重复读则是读取了前一事务提交的数据。
-</code></pre><ul>
-<li>虚读(幻读)</li>
-</ul>
-<blockquote>
-<p>幻读是事务非独立执行时发生的一种现象。</p>
-</blockquote>
-<pre><code>例如事务T1对一个表中所有的行的某个数据项做了从“1”修改为“2”的操作，这时事务T2又对这个表中插入了一行数据项，而这个数据项的数值还是为“1”并且提交给数据库。而操作事务T1的用户如果再查看刚刚修改的数据，会发现还有一行没有修改，其实这行是从事务T2中添加的，就好像产生幻觉一样，这就是发生了幻读。
-</code></pre><hr>
-<h5 id="四种隔离级别？"><a href="#四种隔离级别？" class="headerlink" title="四种隔离级别？"></a>四种隔离级别？</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">级别</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Serializable(串行化)</td>
-<td style="text-align:center">可避免脏读、不可重复读、幻读的发生</td>
-</tr>
-<tr>
-<td style="text-align:center">Repeatable read(可重复读)</td>
-<td style="text-align:center">可避免脏读、不可重复读的发生</td>
-</tr>
-<tr>
-<td style="text-align:center">Read committed(读已提交)</td>
-<td style="text-align:center">可避免脏读的发生</td>
-</tr>
-<tr>
-<td style="text-align:center">Read uncommitted(读未提交)</td>
-<td style="text-align:center">最低级别,任何情况都无法保证</td>
-</tr>
-</tbody>
-</table>
-
+        
+          <a class="article-more-a" href="/2019/06/10/数据库事务四问/#more">more >></a>
+        
       
 
       
@@ -412,18 +359,9 @@ update account set money=money - 100 where name=’A’;    // A减少100元
 </tr>
 </tbody>
 </table>
-<h4 id="1、map的功能"><a href="#1、map的功能" class="headerlink" title="1、map的功能"></a>1、map的功能</h4><p>自动建立key － value的对应。key 和 value可以是任意你需要的类型。map內部的实现自建一颗红黑树，这棵树具有对数据自动排序的功能(<strong>map中的元素是自动按Key升序排序</strong>)</p>
-<h4 id="2、如何使用"><a href="#2、如何使用" class="headerlink" title="2、如何使用"></a>2、如何使用</h4><blockquote>
-<p>// 引入map类所在的头文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include &lt;map&gt;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="3、map中数据插入常用方法"><a href="#3、map中数据插入常用方法" class="headerlink" title="3、map中数据插入常用方法"></a>3、map中数据插入常用方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map&lt;int, string&gt; mapStudent;    // 定义一个map</span><br><span class="line">// 1、用insert函数插入pair数据</span><br><span class="line">mapStudent.insert(pair&lt;int, string&gt;(1, &quot;student_one&quot;));</span><br><span class="line">// 2、用insert函数插入value_type数据</span><br><span class="line">mapStudent.insert(map&lt;int, string&gt;::value_type (2, &quot;student_two&quot;));</span><br><span class="line">// 3、数组方式插入数据</span><br><span class="line">mapStudent[3] = &quot;student_three&quot;;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>区别: 第一种方法和第二张方法相同效果，使用insert插入数据无法覆盖键值已存在的数据，而使用数组的方式会覆盖已存在的键值对。<br>举例:<br><strong>insert插入</strong><br><img src="/img/usageOfMap/840_1.png" alt><br><strong>数组方法插入</strong><br><img src="/img/usageOfMap/842_1.png" alt></p>
-</blockquote>
-<h4 id="4、map的遍历"><a href="#4、map的遍历" class="headerlink" title="4、map的遍历"></a>4、map的遍历</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 1、迭代器的方法</span><br><span class="line">map&lt;int, string&gt;::iterator iter;</span><br><span class="line">for(iter = stuMap.begin(); iter != stuMap.end(); iter++) &#123;</span><br><span class="line">    cout &lt;&lt; iter-&gt;first &lt;&lt; &quot;=====&quot; &lt;&lt; iter-&gt;second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 2、反向迭代器(用于反向迭代容器)</span><br><span class="line">map&lt;int, string&gt;::reverse_iterator iter;</span><br><span class="line">for(iter = stuMap.rbegin(); iter != stuMap.rend(); iter++) &#123;</span><br><span class="line">    cout &lt;&lt; iter-&gt;first &lt;&lt; &quot;=====&quot; &lt;&lt; iter-&gt;second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 3、用键遍历</span><br><span class="line">for(int i = 1; i &lt;= 2; i++) &#123;</span><br><span class="line">    cout &lt;&lt; stuMap[i] &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="5、map的容量获取"><a href="#5、map的容量获取" class="headerlink" title="5、map的容量获取"></a>5、map的容量获取</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stuMap.size()</span><br></pre></td></tr></table></figure>
-<h4 id="6、查找并获取map中的元素"><a href="#6、查找并获取map中的元素" class="headerlink" title="6、查找并获取map中的元素"></a>6、查找并获取map中的元素</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 1、count()    参数填KEY，存在该KEY返回1，不存在返回0</span><br><span class="line">cout &lt;&lt; stuMap.count(1) &lt;&lt; endl;</span><br><span class="line"># 1</span><br><span class="line"></span><br><span class="line">// 2、find()      参数填KEY，存在该KEY返回该位置的迭代器，否则返回指向容器末尾的迭代器</span><br><span class="line">map&lt;int, string&gt;::iterator iter2;</span><br><span class="line">iter2 = stuMap.find(1);</span><br><span class="line">if(iter2 != stuMap.end()) &#123;</span><br><span class="line">    cout &lt;&lt; &quot;找到了: &quot; &lt;&lt; iter2-&gt;first &lt;&lt; &quot;===&quot; &lt;&lt; iter2-&gt;second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"># 找到了: 1===Time</span><br></pre></td></tr></table></figure>
-<h4 id="7、删除map中的元素"><a href="#7、删除map中的元素" class="headerlink" title="7、删除map中的元素"></a>7、删除map中的元素</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// erase()</span><br><span class="line">stuMap[3] = &quot;thief&quot;;</span><br><span class="line">cout &lt;&lt; stuMap[3] &lt;&lt; endl;</span><br><span class="line">map&lt;int, string&gt;::iterator iter3 = stuMap.find(3);</span><br><span class="line">stuMap.erase(iter3);            // 也可直接通过KEY删除: stuMap.erase(3);</span><br><span class="line">cout &lt;&lt; stuMap[3] &lt;&lt; endl;</span><br><span class="line"># thief</span><br><span class="line"># </span><br><span class="line"></span><br><span class="line">// 清空整个map可使用</span><br><span class="line">stuMap.erase( stuMap.begin(), stuMap.end());</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/06/10/map的用法/#more">more >></a>
+        
       
 
       
@@ -526,14 +464,9 @@ update account set money=money - 100 where name=’A’;    // A减少100元
 </tr>
 </tbody>
 </table>
-<h4 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h4><p>vector类称作向量类，它实现了动态数组，用于元素数量变化的对象数组。像数组一样，vector类也用从0开始的下标表示元素的位置；但和数组不同的是，当vector对象创建后，<strong>数组的元素个数会随着vector对象元素个数的增大和缩小而自动变化</strong>。</p>
-<h4 id="2、如何使用"><a href="#2、如何使用" class="headerlink" title="2、如何使用"></a>2、如何使用</h4><blockquote>
-<p>// 引入vector类所在的头文件<br><strong>#include <vector></vector></strong><br>vector<int> vecArr1;           // 创建一个空的vector<br>vector<int> vecArr2(8, 3);    // 创建一个size为8且值都为3的vector<br>vector<int> vecArr3(vecArr2)// 用vecArr2初始化vecArr3<br>vector<int> vecArr4(vecArr3.begin(),vecArr3.begin()+3)// 用vecArr3一部分数据初始化vecArr4</int></int></int></int></p>
-<p>int n[] = {1, 2, 3, 4, 5} ;<br>vector<int> vecArr5(n, n+5) ;              //将数组n的前5个元素作&gt;为向量a的初值<br>vector<int> vecArr6(&amp;n[1], &amp;n[4]) ;        //将n[1] - n[4]范围内的&gt;元素作为向量a的初值</int></int></p>
-</blockquote>
-<h4 id="3、元素的访问"><a href="#3、元素的访问" class="headerlink" title="3、元素的访问"></a>3、元素的访问</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> // 以下标的形式访问</span><br><span class="line">cout &gt;&gt; vecArr2[2] &gt;&gt; endl;</span><br><span class="line"># 3</span><br></pre></td></tr></table></figure>
-<h4 id="4、遍历"><a href="#4、遍历" class="headerlink" title="4、遍历"></a>4、遍历</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt;::iterator iter;</span><br><span class="line">for(iter = vecArr2.begin(); iter!=vecArr2.end(); iter++)</span><br><span class="line">        cout &lt;&lt; *iter &lt;&lt; &quot; &quot; ;</span><br></pre></td></tr></table></figure>
-<h4 id="5、二维vector"><a href="#5、二维vector" class="headerlink" title="5、二维vector"></a>5、二维vector</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;vector&lt;int&gt;&gt; vec(10, vector&lt;int&gt;(5, 1)) // 创建了一个10*5的二维vector，数据全部初始化为1</span><br><span class="line">cout &lt;&lt; vec.size() &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; vec[0].size() &lt;&lt; endl;</span><br><span class="line"># 10</span><br><span class="line"># 5</span><br><span class="line"></span><br><span class="line">// 遍历二维vector</span><br><span class="line">for(int i = 0; i &lt; vec.size(); i++) &#123;</span><br><span class="line">    for(int j = 0; j &lt; vec[i].size(); j++) &#123;</span><br><span class="line">        cout &lt;&lt; vec[i][j] &lt;&lt; &quot; &quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"># 1 1 1 1 1</span><br><span class="line"># 1 1 1 1 1</span><br><span class="line"># 1 1 1 1 1</span><br><span class="line"># 1 1 1 1 1</span><br><span class="line"># 1 1 1 1 1</span><br><span class="line"># 1 1 1 1 1</span><br><span class="line"># 1 1 1 1 1</span><br><span class="line"># 1 1 1 1 1</span><br><span class="line"># 1 1 1 1 1</span><br><span class="line"># 1 1 1 1 1</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2019/06/10/vector的用法/#more">more >></a>
+        
       
 
       
@@ -607,36 +540,6 @@ update account set money=money - 100 where name=’A’;    // A减少100元
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="bitset用法"><a href="#bitset用法" class="headerlink" title="bitset用法"></a>bitset用法</h2><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>bitset是一种类似数组的结构，它的每一个元素只能是０或１，每个元素仅用１bit空间。</p>
-<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><blockquote>
-<p>// 引入bitset类所在的头文件</p>
-<p>#include<bitset></bitset></p>
-</blockquote>
-<h4 id="初始化bitset对象的方法"><a href="#初始化bitset对象的方法" class="headerlink" title="初始化bitset对象的方法"></a>初始化bitset对象的方法</h4><table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">bitset<n> b;</n></td>
-<td style="text-align:center">b有n位，每位都为0</td>
-</tr>
-<tr>
-<td style="text-align:center">bitset<n> b(u);</n></td>
-<td style="text-align:center">b是unsigned long型u的一个副本</td>
-</tr>
-<tr>
-<td style="text-align:center">bitset<n> b(s);</n></td>
-<td style="text-align:center">b是string对象s中含有的位串的副本</td>
-</tr>
-<tr>
-<td style="text-align:center">bitset<n> b(s, pos, n);</n></td>
-<td style="text-align:center">b是s中从位置pos开始的n个位的副本</td>
-</tr>
-</tbody>
-</table>
 <h4 id="bitset常用方法"><a href="#bitset常用方法" class="headerlink" title="bitset常用方法"></a>bitset常用方法</h4><table>
 <thead>
 <tr>
@@ -679,7 +582,9 @@ update account set money=money - 100 where name=’A’;    // A减少100元
 </tr>
 </tbody>
 </table>
-
+        
+          <a class="article-more-a" href="/2019/06/10/bitset的用法/#more">more >></a>
+        
       
 
       
@@ -756,23 +661,9 @@ update account set money=money - 100 where name=’A’;    // A减少100元
 <p>request.getRequestDispatcher(“/success.jsp”).forward(request, response);</p>
 </blockquote>
 <p><img src="/img/def_forword_sendRedirect/878_0.png" alt></p>
-<h4 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h4><blockquote>
-<p>response.sendRedirect(“/success.jsp”);</p>
-</blockquote>
-<p><img src="/img/def_forword_sendRedirect/880_0.png" alt></p>
-<h4 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h4><blockquote>
-<p>RequestDispatcher.forward方法只能将请求转发给同一个<strong>WEB应用中的组件</strong>；<br>HttpServletResponse.sendRedirect 方法不仅可以重定向到当前应用程序中的其他资源，还可以重定向到<strong>同一个站点上或者其他站点的应用程序中的资源</strong></p>
-</blockquote>
-<blockquote>
-<p>如果传递给HttpServletResponse.sendRedirect 方法的相对URL以“/”开头，它是相对于<strong>整个WEB站点</strong>的根目录；<br>如果创建RequestDispatcher对象时指定的相对URL以“/”开头，它是相对于当前<strong>WEB应用程序</strong>的根目录。</p>
-</blockquote>
-<blockquote>
-<p>调用RequestDispatcher.forward 方法的请求转发过程结束后，浏览器地址栏保持初始的<strong>URL地址不变</strong>。<br>调用HttpServletResponse.sendRedirect方法重定向的访问过程结束后，浏览器地址栏中显示的<strong>URL会发生改变，由初始的URL地址变成重定向的目标URL</strong></p>
-</blockquote>
-<blockquote>
-<p>重定向是<strong>两次请求</strong>，转发只有<strong>一次请求</strong></p>
-</blockquote>
-
+        
+          <a class="article-more-a" href="/2019/06/10/请求转发与重定向的区别/#more">more >></a>
+        
       
 
       
@@ -852,26 +743,10 @@ hexo new &quot;postName&quot;     // 新建文章
 hexo new post &quot;title&quot;   // 生成新文章：\source\_posts\title.md
 hexo server                // 开启服务
 hexo server -p 5000        // 使用5000端口开启服务(默认4000)
-</code></pre><h3 id="命令简写"><a href="#命令简写" class="headerlink" title="命令简写"></a>命令简写</h3><pre><code>hexo n == hexo new
-hexo s == hexo server
-hexo d -g                 // 生成加部署
-</code></pre><h3 id="如何将hexo上传至github"><a href="#如何将hexo上传至github" class="headerlink" title="如何将hexo上传至github"></a>如何将hexo上传至github</h3><pre><code>1、配置根文件夹下的_config.yml文件,末尾修改为
-
-deploy:
-  type: git
-  repository: git@github.com:toato/toato.github.io.git
-  branch: master
-
-// 注：repo值是你在github项目里的ssh
-
-2、安装一个扩展：
-
-npm install hexo-deployer-git --save
-
-3、生成以及部署
-
-hexo d -g
 </code></pre>
+        
+          <a class="article-more-a" href="/2019/06/08/Hexo的基本操作/#more">more >></a>
+        
       
 
       

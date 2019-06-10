@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>usageOfbBitset | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="bitset用法简介bitset是一种类似数组的结构，它的每一个元素只能是０或１，每个元素仅用１bit空间。 如何使用 // 引入bitset类所在的头文件 #include  初始化bitset对象的方法   方法 作用     bitset b; b有n位，每位都为0   bitset b(u); b是unsigned long型u的一个副本   bitset b(s); b是string对象">
+  <meta name="description" content="bitset用法简介bitset是一种类似数组的结构，它的每一个元素只能是０或１，每个元素仅用１bit空间。 bitset常用方法   方法 作用     b.size() b中二进制位的个数   b[pos] 访问b中在pos处的二进制位   b.set() 把b中所有二进制位都置为1   b.set(pos) 把b中在pos处的二进制位置为1   b.reset() 把b中所有二进制位都置为0">
 <meta name="keywords" content="C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="usageOfbBitset">
 <meta property="og:url" content="http://yoursite.com/2019/06/10/bitset的用法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="bitset用法简介bitset是一种类似数组的结构，它的每一个元素只能是０或１，每个元素仅用１bit空间。 如何使用 // 引入bitset类所在的头文件 #include  初始化bitset对象的方法   方法 作用     bitset b; b有n位，每位都为0   bitset b(u); b是unsigned long型u的一个副本   bitset b(s); b是string对象">
+<meta property="og:description" content="bitset用法简介bitset是一种类似数组的结构，它的每一个元素只能是０或１，每个元素仅用１bit空间。 bitset常用方法   方法 作用     b.size() b中二进制位的个数   b[pos] 访问b中在pos处的二进制位   b.set() 把b中所有二进制位都置为1   b.set(pos) 把b中在pos处的二进制位置为1   b.reset() 把b中所有二进制位都置为0">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-10T07:30:26.416Z">
+<meta property="og:updated_time" content="2019-06-10T07:58:48.356Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="usageOfbBitset">
-<meta name="twitter:description" content="bitset用法简介bitset是一种类似数组的结构，它的每一个元素只能是０或１，每个元素仅用１bit空间。 如何使用 // 引入bitset类所在的头文件 #include  初始化bitset对象的方法   方法 作用     bitset b; b有n位，每位都为0   bitset b(u); b是unsigned long型u的一个副本   bitset b(s); b是string对象">
+<meta name="twitter:description" content="bitset用法简介bitset是一种类似数组的结构，它的每一个元素只能是０或１，每个元素仅用１bit空间。 bitset常用方法   方法 作用     b.size() b中二进制位的个数   b[pos] 访问b中在pos处的二进制位   b.set() 把b中所有二进制位都置为1   b.set(pos) 把b中在pos处的二进制位置为1   b.reset() 把b中所有二进制位都置为0">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -172,36 +172,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="bitset用法"><a href="#bitset用法" class="headerlink" title="bitset用法"></a>bitset用法</h2><h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>bitset是一种类似数组的结构，它的每一个元素只能是０或１，每个元素仅用１bit空间。</p>
-<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><blockquote>
-<p>// 引入bitset类所在的头文件</p>
-<p>#include<bitset></bitset></p>
-</blockquote>
-<h4 id="初始化bitset对象的方法"><a href="#初始化bitset对象的方法" class="headerlink" title="初始化bitset对象的方法"></a>初始化bitset对象的方法</h4><table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">bitset<n> b;</n></td>
-<td style="text-align:center">b有n位，每位都为0</td>
-</tr>
-<tr>
-<td style="text-align:center">bitset<n> b(u);</n></td>
-<td style="text-align:center">b是unsigned long型u的一个副本</td>
-</tr>
-<tr>
-<td style="text-align:center">bitset<n> b(s);</n></td>
-<td style="text-align:center">b是string对象s中含有的位串的副本</td>
-</tr>
-<tr>
-<td style="text-align:center">bitset<n> b(s, pos, n);</n></td>
-<td style="text-align:center">b是s中从位置pos开始的n个位的副本</td>
-</tr>
-</tbody>
-</table>
 <h4 id="bitset常用方法"><a href="#bitset常用方法" class="headerlink" title="bitset常用方法"></a>bitset常用方法</h4><table>
 <thead>
 <tr>
@@ -241,6 +211,37 @@
 <tr>
 <td style="text-align:center">b.flip(pos)</td>
 <td style="text-align:center">把b中在pos处的二进制位取反</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><blockquote>
+<p>// 引入bitset类所在的头文件</p>
+<p>#include<bitset></bitset></p>
+</blockquote>
+<h4 id="初始化bitset对象的方法"><a href="#初始化bitset对象的方法" class="headerlink" title="初始化bitset对象的方法"></a>初始化bitset对象的方法</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">bitset<n> b;</n></td>
+<td style="text-align:center">b有n位，每位都为0</td>
+</tr>
+<tr>
+<td style="text-align:center">bitset<n> b(u);</n></td>
+<td style="text-align:center">b是unsigned long型u的一个副本</td>
+</tr>
+<tr>
+<td style="text-align:center">bitset<n> b(s);</n></td>
+<td style="text-align:center">b是string对象s中含有的位串的副本</td>
+</tr>
+<tr>
+<td style="text-align:center">bitset<n> b(s, pos, n);</n></td>
+<td style="text-align:center">b是s中从位置pos开始的n个位的副本</td>
 </tr>
 </tbody>
 </table>

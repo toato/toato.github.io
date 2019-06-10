@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="vector用法0、vector常用函数   函数 作用     size() 获取vector容器大小   empty() 判断vector是否为空，返回bool   clear() 清空vector   insert() 指定位置插入元素，vecArr.insert(vecArr.begin(), 10)   erase() 删除指定位置的元素，vecArr.erase(vecArr.begi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-10T07:31:07.508Z">
+<meta property="og:updated_time" content="2019-06-10T07:58:09.191Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="usageOfVector">
 <meta name="twitter:description" content="vector用法0、vector常用函数   函数 作用     size() 获取vector容器大小   empty() 判断vector是否为空，返回bool   clear() 清空vector   insert() 指定位置插入元素，vecArr.insert(vecArr.begin(), 10)   erase() 删除指定位置的元素，vecArr.erase(vecArr.begi">
@@ -201,6 +201,7 @@
 </tr>
 </tbody>
 </table>
+<a id="more"></a>
 <h4 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h4><p>vector类称作向量类，它实现了动态数组，用于元素数量变化的对象数组。像数组一样，vector类也用从0开始的下标表示元素的位置；但和数组不同的是，当vector对象创建后，<strong>数组的元素个数会随着vector对象元素个数的增大和缩小而自动变化</strong>。</p>
 <h4 id="2、如何使用"><a href="#2、如何使用" class="headerlink" title="2、如何使用"></a>2、如何使用</h4><blockquote>
 <p>// 引入vector类所在的头文件<br><strong>#include <vector></vector></strong><br>vector<int> vecArr1;           // 创建一个空的vector<br>vector<int> vecArr2(8, 3);    // 创建一个size为8且值都为3的vector<br>vector<int> vecArr3(vecArr2)// 用vecArr2初始化vecArr3<br>vector<int> vecArr4(vecArr3.begin(),vecArr3.begin()+3)// 用vecArr3一部分数据初始化vecArr4</int></int></int></int></p>
