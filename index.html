@@ -148,19 +148,151 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-usageOfMap" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-数据库事务四问" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/10/usageOfMap/">usageOfMap</a>
+      <a class="article-title" href="/2019/06/10/数据库事务四问/">数据库事务</a>
     </h1>
   
 
         
-        <a href="/2019/06/10/usageOfMap/" class="archive-article-date">
+        <a href="/2019/06/10/数据库事务四问/" class="archive-article-date">
+  	<time datetime="2019-06-10T07:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据库事务四问"><a href="#数据库事务四问" class="headerlink" title="数据库事务四问"></a>数据库事务四问</h1><h5 id="什么是事务？"><a href="#什么是事务？" class="headerlink" title="什么是事务？"></a>什么是事务？</h5><blockquote>
+<p>是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。</p>
+</blockquote>
+<hr>
+<h5 id="事务的四大特性？"><a href="#事务的四大特性？" class="headerlink" title="事务的四大特性？"></a>事务的四大特性？</h5><blockquote>
+<p>ACID<br>   原子性(Atomicity)<br>   一致性(Consistency)<br>   隔离性(Isolation)<br>   持久性(Durability)</p>
+</blockquote>
+<hr>
+<h5 id="不考虑隔离性会产生的3个问题？"><a href="#不考虑隔离性会产生的3个问题？" class="headerlink" title="不考虑隔离性会产生的3个问题？"></a>不考虑隔离性会产生的3个问题？</h5><ul>
+<li>脏读</li>
+</ul>
+<blockquote>
+<p>脏读是指在一个事务处理过程里读取了另一个未提交的事务中的数据</p>
+</blockquote>
+<pre><code>// 例如A向B转100元,分两步
+update account set money=money+100 where name=’B’;    // B得到100元
+// 若此时B查看账户发现钱到账了,若事务没有提交就会回滚,最后钱并没有到账
+update account set money=money - 100 where name=’A’;    // A减少100元
+</code></pre><ul>
+<li>不可重复读</li>
+</ul>
+<blockquote>
+<p>不可重复读是指在对于数据库中的某个数据，一个事务范围内多次查询却返回了不同的数据值，这是由于在查询间隔，被另一个事务修改并提交了。</p>
+</blockquote>
+<pre><code>例如事务T1在读取某一数据，而事务T2立马修改了这个数据并且提交事务给数据库，事务T1再次读取该数据就得到了不同的结果，发送了不可重复读。　　不可重复读和脏读的区别是，脏读是某一事务读取了另一个事务未提交的脏数据，而不可重复读则是读取了前一事务提交的数据。
+</code></pre><ul>
+<li>虚读(幻读)</li>
+</ul>
+<blockquote>
+<p>幻读是事务非独立执行时发生的一种现象。</p>
+</blockquote>
+<pre><code>例如事务T1对一个表中所有的行的某个数据项做了从“1”修改为“2”的操作，这时事务T2又对这个表中插入了一行数据项，而这个数据项的数值还是为“1”并且提交给数据库。而操作事务T1的用户如果再查看刚刚修改的数据，会发现还有一行没有修改，其实这行是从事务T2中添加的，就好像产生幻觉一样，这就是发生了幻读。
+</code></pre><hr>
+<h5 id="四种隔离级别？"><a href="#四种隔离级别？" class="headerlink" title="四种隔离级别？"></a>四种隔离级别？</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">级别</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Serializable(串行化)</td>
+<td style="text-align:center">可避免脏读、不可重复读、幻读的发生</td>
+</tr>
+<tr>
+<td style="text-align:center">Repeatable read(可重复读)</td>
+<td style="text-align:center">可避免脏读、不可重复读的发生</td>
+</tr>
+<tr>
+<td style="text-align:center">Read committed(读已提交)</td>
+<td style="text-align:center">可避免脏读的发生</td>
+</tr>
+<tr>
+<td style="text-align:center">Read uncommitted(读未提交)</td>
+<td style="text-align:center">最低级别,任何情况都无法保证</td>
+</tr>
+</tbody>
+</table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/06/10/数据库事务四问/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-map的用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/10/map的用法/">usageOfMap</a>
+    </h1>
+  
+
+        
+        <a href="/2019/06/10/map的用法/" class="archive-article-date">
   	<time datetime="2019-06-10T07:31:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
 </a>
         
@@ -240,7 +372,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/10/usageOfMap/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/06/10/map的用法/">展开全文 >></a>
         </p>
       
 
@@ -270,19 +402,19 @@
 
 
   
-    <article id="post-usageOfVector" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vector的用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/10/usageOfVector/">usageOfVector</a>
+      <a class="article-title" href="/2019/06/10/vector的用法/">usageOfVector</a>
     </h1>
   
 
         
-        <a href="/2019/06/10/usageOfVector/" class="archive-article-date">
+        <a href="/2019/06/10/vector的用法/" class="archive-article-date">
   	<time datetime="2019-06-10T07:29:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
 </a>
         
@@ -350,7 +482,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/10/usageOfVector/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/06/10/vector的用法/">展开全文 >></a>
         </p>
       
 
@@ -380,19 +512,19 @@
 
 
   
-    <article id="post-usageOfBitset" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-bitset的用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/10/usageOfBitset/">usageOfbBitset</a>
+      <a class="article-title" href="/2019/06/10/bitset的用法/">usageOfbBitset</a>
     </h1>
   
 
         
-        <a href="/2019/06/10/usageOfBitset/" class="archive-article-date">
+        <a href="/2019/06/10/bitset的用法/" class="archive-article-date">
   	<time datetime="2019-06-10T07:29:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
 </a>
         
@@ -496,7 +628,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/10/usageOfBitset/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/06/10/bitset的用法/">展开全文 >></a>
         </p>
       
 
@@ -526,19 +658,19 @@
 
 
   
-    <article id="post-def-forword-sendRedirect" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-请求转发与重定向的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/10/def-forword-sendRedirect/">def_forword_sendRedirect</a>
+      <a class="article-title" href="/2019/06/10/请求转发与重定向的区别/">def_forword_sendRedirect</a>
     </h1>
   
 
         
-        <a href="/2019/06/10/def-forword-sendRedirect/" class="archive-article-date">
+        <a href="/2019/06/10/请求转发与重定向的区别/" class="archive-article-date">
   	<time datetime="2019-06-10T07:23:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
 </a>
         
@@ -589,7 +721,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/10/def-forword-sendRedirect/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/06/10/请求转发与重定向的区别/">展开全文 >></a>
         </p>
       
 
@@ -956,6 +1088,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">测试hexo</a>
               </li>
              
@@ -964,11 +1104,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
+                <a href="javascript:void(0)" class="js-tag color4">SQL</a>
               </li>
             
             <div class="clearfix"></div>
