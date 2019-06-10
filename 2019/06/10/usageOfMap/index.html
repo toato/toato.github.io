@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="c++ map用法0、map常用函数   函数 作用     begin() 返回指向map头部的迭代器   end() 返回指向map末尾的迭代器   clear(） 删除所有元素   erase() 删除一个元素   find() 查找一个元素   insert() 插入一个元素   size() 返回容器中键值对的数量    1、map的功能自动建立key － value的对应。key 和">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="en-resource://database/840:1">
-<meta property="og:image" content="en-resource://database/842:1">
-<meta property="og:updated_time" content="2019-06-10T07:31:43.505Z">
+<meta property="og:image" content="http://yoursite.com/img/usageOfMap/840_1.png">
+<meta property="og:image" content="http://yoursite.com/img/usageOfMap/842_1.png">
+<meta property="og:updated_time" content="2019-06-10T07:35:48.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="usageOfMap">
 <meta name="twitter:description" content="c++ map用法0、map常用函数   函数 作用     begin() 返回指向map头部的迭代器   end() 返回指向map末尾的迭代器   clear(） 删除所有元素   erase() 删除一个元素   find() 查找一个元素   insert() 插入一个元素   size() 返回容器中键值对的数量    1、map的功能自动建立key － value的对应。key 和">
-<meta name="twitter:image" content="en-resource://database/840:1">
+<meta name="twitter:image" content="http://yoursite.com/img/usageOfMap/840_1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -214,11 +214,11 @@
 </table>
 <h4 id="1、map的功能"><a href="#1、map的功能" class="headerlink" title="1、map的功能"></a>1、map的功能</h4><p>自动建立key － value的对应。key 和 value可以是任意你需要的类型。map內部的实现自建一颗红黑树，这棵树具有对数据自动排序的功能(<strong>map中的元素是自动按Key升序排序</strong>)</p>
 <h4 id="2、如何使用"><a href="#2、如何使用" class="headerlink" title="2、如何使用"></a>2、如何使用</h4><blockquote>
-<p>// 引入map类所在的头文件<br><strong>#include <map></map></strong></p>
+<p>// 引入map类所在的头文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include &lt;map&gt;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h4 id="3、map中数据插入常用方法"><a href="#3、map中数据插入常用方法" class="headerlink" title="3、map中数据插入常用方法"></a>3、map中数据插入常用方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">map&lt;int, string&gt; mapStudent;    // 定义一个map</span><br><span class="line">// 1、用insert函数插入pair数据</span><br><span class="line">mapStudent.insert(pair&lt;int, string&gt;(1, &quot;student_one&quot;));</span><br><span class="line">// 2、用insert函数插入value_type数据</span><br><span class="line">mapStudent.insert(map&lt;int, string&gt;::value_type (2, &quot;student_two&quot;));</span><br><span class="line">// 3、数组方式插入数据</span><br><span class="line">mapStudent[3] = &quot;student_three&quot;;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>区别: 第一种方法和第二张方法相同效果，使用insert插入数据无法覆盖键值已存在的数据，而使用数组的方式会覆盖已存在的键值对。<br>举例:<br><strong>insert插入</strong><br><img src="en-resource://database/840:1" alt="ba78192a787c39ed385eb8e6e50a5da9.png"><br><strong>数组方法插入</strong><br><img src="en-resource://database/842:1" alt="a45b5ecf2e70b918412f04ed52ac157e.png"></p>
+<p>区别: 第一种方法和第二张方法相同效果，使用insert插入数据无法覆盖键值已存在的数据，而使用数组的方式会覆盖已存在的键值对。<br>举例:<br><strong>insert插入</strong><br><img src="/img/usageOfMap/840_1.png" alt><br><strong>数组方法插入</strong><br><img src="/img/usageOfMap/842_1.png" alt></p>
 </blockquote>
 <h4 id="4、map的遍历"><a href="#4、map的遍历" class="headerlink" title="4、map的遍历"></a>4、map的遍历</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 1、迭代器的方法</span><br><span class="line">map&lt;int, string&gt;::iterator iter;</span><br><span class="line">for(iter = stuMap.begin(); iter != stuMap.end(); iter++) &#123;</span><br><span class="line">    cout &lt;&lt; iter-&gt;first &lt;&lt; &quot;=====&quot; &lt;&lt; iter-&gt;second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 2、反向迭代器(用于反向迭代容器)</span><br><span class="line">map&lt;int, string&gt;::reverse_iterator iter;</span><br><span class="line">for(iter = stuMap.rbegin(); iter != stuMap.rend(); iter++) &#123;</span><br><span class="line">    cout &lt;&lt; iter-&gt;first &lt;&lt; &quot;=====&quot; &lt;&lt; iter-&gt;second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 3、用键遍历</span><br><span class="line">for(int i = 1; i &lt;= 2; i++) &#123;</span><br><span class="line">    cout &lt;&lt; stuMap[i] &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="5、map的容量获取"><a href="#5、map的容量获取" class="headerlink" title="5、map的容量获取"></a>5、map的容量获取</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stuMap.size()</span><br></pre></td></tr></table></figure>
