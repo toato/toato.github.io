@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Mabatis中的延迟加载与缓存mabatis延迟加载什么是延迟加载？在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。 什么是立即加载？不管用不用直接查询出全部信息。 什么情况下使用延迟加载, 什么情况下使用立即加载？   表关系 加载方式     一对多、多对多 延迟加载   一对一、多对">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-10T08:21:55.844Z">
+<meta property="og:updated_time" content="2019-06-10T08:26:37.300Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mabatis中的延迟加载与缓存">
 <meta name="twitter:description" content="Mabatis中的延迟加载与缓存mabatis延迟加载什么是延迟加载？在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。 什么是立即加载？不管用不用直接查询出全部信息。 什么情况下使用延迟加载, 什么情况下使用立即加载？   表关系 加载方式     一对多、多对多 延迟加载   一对一、多对">
@@ -197,9 +197,13 @@
 </code></pre><h5 id="mybatis的一级缓存和二级缓存？"><a href="#mybatis的一级缓存和二级缓存？" class="headerlink" title="mybatis的一级缓存和二级缓存？"></a>mybatis的一级缓存和二级缓存？</h5><p>一级缓存：    mabatis的sqlSession的缓存<br>当调用sqlsession的增删改查方法以及commit(), close()方法时会清空一级缓存</p>
 <p>二级缓存:     sqlSessionFactory的缓存，同一个sqlSessionFactory创建出来的sqlSession共享二级缓存</p>
 <blockquote>
-<p>二级缓存开启<br>1、mabatis框架开启支持</p>
-<p><setting name="cacheEnabled" value="true"><br>2、当前映射文件开启支持二级缓存</setting></p>
-<p><cache><br>3、select标签添加属性（使当前操作支持二级缓存）<br>useCache=”true”</cache></p>
+<p>二级缓存开启<br>1、mabatis框架开启支持<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>2、当前映射文件开启支持二级缓存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; &lt;cache /&gt;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>3、select标签添加属性（使当前操作支持二级缓存）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; useCache=&quot;true&quot;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 
       
@@ -314,6 +318,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/06/10/有趣的字符画/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2019/06/10/Mybatis约束/" id="article-nav-older" class="article-nav-link-wrap">
