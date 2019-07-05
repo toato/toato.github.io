@@ -149,6 +149,346 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Mybatis注解开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/05/Mybatis注解开发/">Mybatis注解开发</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/05/Mybatis注解开发/" class="archive-article-date">
+  	<time datetime="2019-07-05T06:20:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、主配置文件配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 指定带有注解的dao接口所在位置 --&gt;</span><br><span class="line">&lt;mappers&gt;    </span><br><span class="line">    &lt;package name=&quot;com.yb.dao&quot;&gt;&lt;/package&gt;</span><br><span class="line">&lt;/mappers&gt;</span><br></pre></td></tr></table></figure></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/05/Mybatis注解开发/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mybatis动态SQL语句" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/05/Mybatis动态SQL语句/">Mybatis动态SQL语句</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/05/Mybatis动态SQL语句/" class="archive-article-date">
+  	<time datetime="2019-07-05T06:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="的使用"><a href="#的使用" class="headerlink" title="的使用"></a><if test></if>的使用</h3><blockquote>
+<p>根据传入参数来决定查询条件,进而决定查询结果<br>当test中的表达式为<strong>true</strong>时将拼接上if标签中的sql语句</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;select id=&quot;queryByCondition&quot; resultType=&quot;com.yb.domain.User&quot; parameterType=&quot;com.yb.domain.User&quot;&gt;    </span><br><span class="line">    select * from user where 1 = 1    </span><br><span class="line">    &lt;if test=&quot;username != null&quot;&gt;      </span><br><span class="line">        and username = #&#123;username&#125;    </span><br><span class="line">    &lt;/if&gt;</span><br><span class="line">    &lt;if test=&quot;sex != null&quot;&gt;      </span><br><span class="line">        and sex = #&#123;sex&#125;    </span><br><span class="line">    &lt;/if&gt;</span><br><span class="line">&lt;/select&gt;</span><br></pre></td></tr></table></figure>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/05/Mybatis动态SQL语句/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-MyBatis中ofType和javaType" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/05/MyBatis中ofType和javaType/">MyBatis中ofType和javaType</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/05/MyBatis中ofType和javaType/" class="archive-article-date">
+  	<time datetime="2019-07-05T06:19:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaType和ofType都是用来指定对象类型的，但是<strong>JavaType是用来指定pojo属性的类型</strong>，而<strong>ofType指定的是映射到list集合属性中pojo的类型</strong>。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/05/MyBatis中ofType和javaType/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Mybatis多表操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/05/Mybatis多表操作/">Mybatis多表操作</a>
+    </h1>
+  
+
+        
+        <a href="/2019/07/05/Mybatis多表操作/" class="archive-article-date">
+  	<time datetime="2019-07-05T06:19:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1、一对一"><a href="#1、一对一" class="headerlink" title="1、一对一"></a>1、一对一</h4><p>账户与用户的对应关系(一个账户只能对应一个用户)<br><strong>用户表(user)</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">id</th>
+<th style="text-align:center">username</th>
+<th style="text-align:center">birthday</th>
+<th style="text-align:center">sex</th>
+<th style="text-align:center">address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1024</td>
+<td style="text-align:center">Toato</td>
+<td style="text-align:center">2019-06-06</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">清源山</td>
+</tr>
+<tr>
+<td style="text-align:center">1025</td>
+<td style="text-align:center">追逐繁星的孩子</td>
+<td style="text-align:center">2019-06-06</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">大醮</td>
+</tr>
+<tr>
+<td style="text-align:center">1027</td>
+<td style="text-align:center">王大</td>
+<td style="text-align:center">2019-06-06</td>
+<td style="text-align:center">男</td>
+<td style="text-align:center">小山村</td>
+</tr>
+<tr>
+<td style="text-align:center">1028</td>
+<td style="text-align:center">王二</td>
+<td style="text-align:center">2019-06-06</td>
+<td style="text-align:center">女</td>
+<td style="text-align:center">小山村</td>
+</tr>
+</tbody>
+</table>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/07/05/Mybatis多表操作/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-spring-MVC常用注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -596,308 +936,9 @@
 
 
   
-    <article id="post-Mabatis中的延迟加载与缓存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/10/Mabatis中的延迟加载与缓存/">Mabatis中的延迟加载与缓存</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/10/Mabatis中的延迟加载与缓存/" class="archive-article-date">
-  	<time datetime="2019-06-10T08:21:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Mabatis中的延迟加载与缓存"><a href="#Mabatis中的延迟加载与缓存" class="headerlink" title="Mabatis中的延迟加载与缓存"></a>Mabatis中的延迟加载与缓存</h2><h3 id="mabatis延迟加载"><a href="#mabatis延迟加载" class="headerlink" title="mabatis延迟加载"></a>mabatis延迟加载</h3><h5 id="什么是延迟加载？"><a href="#什么是延迟加载？" class="headerlink" title="什么是延迟加载？"></a>什么是延迟加载？</h5><p>在真正使用数据时才发起查询, 不用的时候不查询, 按需加载. 如在查询用户时是不需要知道其关联的账户的, 只有在查询用户的账户的时候才需要查询其关联的账户。</p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/10/Mabatis中的延迟加载与缓存/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-有趣的字符画" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/10/有趣的字符画/">有趣的字符画</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/10/有趣的字符画/" class="archive-article-date">
-  	<time datetime="2019-06-10T08:21:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="有趣的字符画"><a href="#有趣的字符画" class="headerlink" title="有趣的字符画"></a>有趣的字符画</h2><h3 id="佛祖"><a href="#佛祖" class="headerlink" title="佛祖"></a>佛祖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">                           _</span><br><span class="line">                        _ooOoo_</span><br><span class="line">                       o8888888o</span><br><span class="line">                       88&quot; . &quot;88</span><br><span class="line">                       (| -_- |)</span><br><span class="line">                       O\  =  /O</span><br><span class="line">                    ____/`---&apos;\____</span><br><span class="line">                  .&apos;  \\|     |//  `.</span><br><span class="line">                 /  \\|||  :  |||//  \</span><br><span class="line">                /  _||||| -:- |||||_  \</span><br><span class="line">                |   | \\\  -  /&apos;| |   |</span><br><span class="line">                | \_|  `\`---&apos;//  |_/ |</span><br><span class="line">                \  .-\__ `-. -&apos;__/-.  /</span><br><span class="line">              ___`. .&apos;  /--.--\  `. .&apos;___</span><br><span class="line">           .&quot;&quot; &apos;&lt;  `.___\_&lt;|&gt;_/___.&apos; _&gt; \&quot;&quot;.</span><br><span class="line">          | | :  `- \`. ;`. _/; .&apos;/ /  .&apos; ; |</span><br><span class="line">          \  \ `-.   \_\_`. _.&apos;_/_/  -&apos; _.&apos; /</span><br><span class="line">===========`-.`___`-.__\ \___  /__.-&apos;_.&apos;_.-&apos;================</span><br><span class="line">                        `=--=-&apos;</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ascii art</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/10/有趣的字符画/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Mybatis约束" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/10/Mybatis约束/">Mybatis约束</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/10/Mybatis约束/" class="archive-article-date">
-  	<time datetime="2019-06-10T07:46:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="mybatis约束"><a href="#mybatis约束" class="headerlink" title="mybatis约束"></a>mybatis约束</h1><h4 id="mybatis主映射文件约束"><a href="#mybatis主映射文件约束" class="headerlink" title="mybatis主映射文件约束"></a>mybatis主映射文件约束</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE configuration        </span><br><span class="line">    PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;        </span><br><span class="line">    &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
-<h4 id="mybatis映射文件约束"><a href="#mybatis映射文件约束" class="headerlink" title="mybatis映射文件约束"></a>mybatis映射文件约束</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE mapper        </span><br><span class="line">    PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;        </span><br><span class="line">    &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/10/Mybatis约束/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库事务四问" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/10/数据库事务四问/">数据库事务</a>
-    </h1>
-  
-
-        
-        <a href="/2019/06/10/数据库事务四问/" class="archive-article-date">
-  	<time datetime="2019-06-10T07:38:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="数据库事务四问"><a href="#数据库事务四问" class="headerlink" title="数据库事务四问"></a>数据库事务四问</h1><h5 id="什么是事务？"><a href="#什么是事务？" class="headerlink" title="什么是事务？"></a>什么是事务？</h5><blockquote>
-<p>是数据库管理系统执行过程中的一个逻辑单位，由一个有限的数据库操作序列构成。</p>
-</blockquote>
-<hr>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SQL</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/06/10/数据库事务四问/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
@@ -993,6 +1034,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
@@ -1001,19 +1046,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">arithmetic</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sprintMVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1021,7 +1054,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">sprintMVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">SQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">arithmetic</a>
               </li>
              
               <li class="article-tag-list-item">
