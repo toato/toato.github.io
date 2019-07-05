@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="@controller@RequestMappingRequestMapping注解用于配置地址映射，映射地址由value或者path指定，请求的方式用method指定，params指定请求的url中必须带有某些字段，否则不予响应     @RequestMapping(value = “/hello”)@RequestMapping(path = “/hello”)  // 与上面的作用相同@R">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-05T06:15:38.325Z">
+<meta property="og:updated_time" content="2019-07-05T06:16:46.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring MVC常用注解">
 <meta name="twitter:description" content="@controller@RequestMappingRequestMapping注解用于配置地址映射，映射地址由value或者path指定，请求的方式用method指定，params指定请求的url中必须带有某些字段，否则不予响应     @RequestMapping(value = “/hello”)@RequestMapping(path = “/hello”)  // 与上面的作用相同@R">
@@ -176,6 +176,7 @@
 <blockquote>
 <p>@RequestMapping(value = “/hello”)<br>@RequestMapping(path = “/hello”)  // 与上面的作用相同<br>@RequestMapping(path = “/hello”, method = {RequestMethod.GET}) // 指定映射路径为/hello，且只有用get方式请求才会响应<br>@RequestMapping(path = “/hello”, params = {“username”}); // 请求url后必须带有username字段<br>@RequestMapping(path = “/hello”, params = {“username=HelloWorld”}); // 请求url后必须带有username字段，且值必须为HelloWorld</p>
 </blockquote>
+<a id="more"></a>
 <h4 id="RequestParam"><a href="#RequestParam" class="headerlink" title="@RequestParam"></a>@RequestParam</h4><blockquote>
 <p>该注解将url中的字段与方法中的参数对应起来</p>
 </blockquote>
